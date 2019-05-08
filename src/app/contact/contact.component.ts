@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import { PersonalData } from '../../models/contact-request';
+import {ContactRequest, PersonalData} from '../../models/contact-request';
+
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-contact',
@@ -53,4 +55,10 @@ export class ContactComponent implements OnInit {
       text: ''
     });
   }
+
+  onSubmit() {
+    const result: ContactRequest = _.cloneDeep(this.contactForm.value);
+    console.log(result);
+  }
+
 }
