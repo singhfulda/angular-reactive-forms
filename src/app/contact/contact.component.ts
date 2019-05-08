@@ -61,4 +61,12 @@ export class ContactComponent implements OnInit {
     console.log(result);
   }
 
+  revert() {
+    // Resets to blank object
+    this.contactForm.reset();
+
+    // Resets to provided model
+    this.contactForm.reset({ personalData: new PersonalData(), requestType: '', text: '' });
+  }
+
 }
