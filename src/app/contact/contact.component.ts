@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { PersonalData } from '../../models/contact-request';
 
 @Component({
   selector: 'app-contact',
@@ -32,13 +33,22 @@ export class ContactComponent implements OnInit {
     });
   }
 
+  // createFormGroupWithBuilder(formBuilder: FormBuilder) {
+  //   return formBuilder.group({
+  //     personalData: formBuilder.group({
+  //       email: 'defaul@email.com',
+  //       mobile: '',
+  //       country: ''
+  //     }),
+  //     requestType: '',
+  //     text: ''
+  //   });
+  // }
+
+  // class added instead default value in order to generate all fields
   createFormGroupWithBuilder(formBuilder: FormBuilder) {
     return formBuilder.group({
-      personalData: formBuilder.group({
-        email: 'defaul@email.com',
-        mobile: '',
-        country: ''
-      }),
+      personalData: formBuilder.group(new PersonalData()),
       requestType: '',
       text: ''
     });
